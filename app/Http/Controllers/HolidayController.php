@@ -14,7 +14,9 @@ class HolidayController extends Controller
      */
     public function index()
     {
-        //
+//        $holidays = Holiday::all();
+//        return response()->json($holidays);
+        return Holiday::select('id','title','date','day')->get();
     }
 
     /**
@@ -42,8 +44,7 @@ class HolidayController extends Controller
         ]);
 
         $holidays = Holiday::create($request->all());
-        return response()->json(['message'=> 'holiday saved',
-            'holiday' => $holidays]);
+        return Holiday::select('id','title','date','day')->get();
     }
 
     /**

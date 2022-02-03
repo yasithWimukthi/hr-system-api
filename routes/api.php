@@ -25,3 +25,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //});
 
 Route::post('/holidays', [\App\Http\Controllers\HolidayController::class, 'store']);
+Route::get('/holidays', [\App\Http\Controllers\HolidayController::class, 'index']);
