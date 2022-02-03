@@ -43,8 +43,17 @@ class HolidayController extends Controller
             'day' => 'required'
         ]);
 
-        $holidays = Holiday::create($request->all());
-        return Holiday::select('id','title','date','day')->get();
+        try {
+            $holidays = Holiday::create($request->all());
+            return Holiday::select('id','title','date','day')->get();
+        }catch(\Exception $e){
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Something goes wrong while storing a holiday!!'
+            ],500);
+        }
+
+
     }
 
     /**
@@ -89,6 +98,16 @@ class HolidayController extends Controller
      */
     public function destroy(Holiday $holiday)
     {
-        //
+        try {
+
+            $holiday->delete();
+            return Holiday::select('id','title','date','day')->get();;
+
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Something goes wrong while removing a holiday!!'
+            ]);
+        }
     }
 }
