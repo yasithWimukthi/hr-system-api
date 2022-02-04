@@ -75,7 +75,7 @@ class HolidayController extends Controller
      */
     public function edit(Holiday $holiday)
     {
-        //
+
     }
 
     /**
@@ -87,7 +87,22 @@ class HolidayController extends Controller
      */
     public function update(Request $request, Holiday $holiday)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'day' => 'required'
+        ]);
+
+        try{
+            $holiday->fill($request->post())->update();
+
+            return Holiday::select('id','title','date','day')->get();
+        }catch(\Exception $e){
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Something goes wrong while updating a holiday!!'
+            ],500);
+        }
     }
 
     /**
