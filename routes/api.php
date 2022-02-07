@@ -18,11 +18,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Route::middleware(['cors'])->post('/holidays', 'HolidayController@store')->name('holiday.store');
-
-//Route::middleware(['cors'])->group(function () {
-//    Route::post('/holidays', 'HolidayController@store')->name('holiday.store');
-//});
 
 Route::post('/holidays', [\App\Http\Controllers\HolidayController::class, 'store']);
 Route::get('/holidays', [\App\Http\Controllers\HolidayController::class, 'index']);
@@ -31,3 +26,4 @@ Route::post('/holidays/{holiday}',[\App\Http\Controllers\HolidayController::clas
 
 Route::post('/companies', [\App\Http\Controllers\CompanyController::class, 'store']);
 Route::get('/companies', [\App\Http\Controllers\CompanyController::class, 'index']);
+Route::post('/companies/{company}',[\App\Http\Controllers\CompanyController::class, 'update']);
