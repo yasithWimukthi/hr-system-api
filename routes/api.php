@@ -27,3 +27,4 @@ Route::post('/holidays/{holiday}',[\App\Http\Controllers\HolidayController::clas
 Route::post('/companies', [\App\Http\Controllers\CompanyController::class, 'store']);
 Route::get('/companies', [\App\Http\Controllers\CompanyController::class, 'index']);
 Route::post('/companies/{company}',[\App\Http\Controllers\CompanyController::class, 'update']);
+Route::delete('/companies/{company}',[\App\Http\Controllers\CompanyController::class, 'destroy']);
