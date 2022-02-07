@@ -127,6 +127,15 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
+        try {
+            $company->delete();
+            return Company::select()->get();;
+
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Something goes wrong while removing a company!!'
+            ]);
+        }
     }
 }
