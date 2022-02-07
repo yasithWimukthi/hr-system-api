@@ -56,7 +56,7 @@ class CompanyController extends Controller
         }catch(\Exception $e){
             \Log::error($e->getMessage());
             return response()->json([
-                'message'=>'Something goes wrong while storing a holiday!!'
+                'message'=>'Something goes wrong while storing a company!!'
             ],500);
         }
     }
@@ -92,7 +92,31 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+        $request->validate([
+            'country' => 'required',
+            'companyName' => 'required',
+            'contactPerson' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'postalCode' => 'required',
+            'email' => 'required',
+            'phoneNumber' => 'required',
+            'mobileNumber' => 'required',
+            'fax' => 'required',
+            'websiteUrl' => 'required'
+        ]);
+
+        try{
+            $company->fill($request->post())->update();
+
+            return Company::select()->get();
+        }catch(\Exception $e){
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Something goes wrong while updating a company!!'
+            ],500);
+        }
     }
 
     /**
