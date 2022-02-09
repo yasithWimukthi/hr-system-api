@@ -28,3 +28,7 @@ Route::post('/companies', [\App\Http\Controllers\CompanyController::class, 'stor
 Route::get('/companies', [\App\Http\Controllers\CompanyController::class, 'index']);
 Route::post('/companies/{company}',[\App\Http\Controllers\CompanyController::class, 'update']);
 Route::delete('/companies/{company}',[\App\Http\Controllers\CompanyController::class, 'destroy']);
+
+Route::post('/localizations', [\App\Http\Controllers\LocalizationController::class, 'store']);
+Route::get('/localizations', [\App\Http\Controllers\LocalizationController::class, 'index']);
+Route::post('/localizations/{localization}',[\App\Http\Controllers\LocalizationController::class, 'update']);

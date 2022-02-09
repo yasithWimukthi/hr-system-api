@@ -43,7 +43,7 @@ class LocalizationController extends Controller
         ]);
 
         try {
-            $localization = Holiday::create($request->all());
+            $localization = Localization::create($request->all());
         }catch(\Exception $e){
             \Log::error($e->getMessage());
             return response()->json([
@@ -83,7 +83,23 @@ class LocalizationController extends Controller
      */
     public function update(Request $request, Localization $localization)
     {
-        //
+
+        $request->validate([
+            'startTime' => 'required',
+            'endTime' => 'required',
+            'workingHours' => 'required',
+            'gracePeriod' => 'required'
+        ]);
+
+        try{
+            $localization->fill($request->post())->update();
+
+        }catch(\Exception $e){
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Something goes wrong while updating localization!!'
+            ],500);
+        }
     }
 
     /**
