@@ -52,8 +52,6 @@ class HolidayController extends Controller
                 'message'=>'Something goes wrong while storing a holiday!!'
             ],500);
         }
-
-
     }
 
     /**
