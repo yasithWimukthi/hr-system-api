@@ -140,7 +140,7 @@ class CompanyController extends Controller
     }
 
     /**
-     * Deletes a blog post.
+     * Deletes a company details.
      * @param Int $id
      */
 

@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/holidays', [\App\Http\Controllers\HolidayController::class, 'store']);
 Route::get('/holidays', [\App\Http\Controllers\HolidayController::class, 'index']);
-Route::delete('/holidays/{holiday}',[\App\Http\Controllers\HolidayController::class, 'destroy']);
+Route::delete('/holidays/{holiday}',[\App\Http\Controllers\HolidayController::class, 'delete']);
 Route::post('/holidays/{holiday}',[\App\Http\Controllers\HolidayController::class, 'update']);
 
 Route::post('/companies', [\App\Http\Controllers\CompanyController::class, 'store']);
