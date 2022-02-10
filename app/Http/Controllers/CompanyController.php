@@ -138,4 +138,27 @@ class CompanyController extends Controller
             ]);
         }
     }
+
+    /**
+     * Deletes a blog post.
+     * @param Int $id
+     */
+
+    public function delete(int $id)
+
+    {
+
+        try {
+            $company = Company::findOrFail($id);
+            $company->delete();
+            return Company::all();
+
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Something goes wrong while removing a company!!'
+            ]);
+        }
+
+    }
 }
