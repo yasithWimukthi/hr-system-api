@@ -123,4 +123,27 @@ class HolidayController extends Controller
             ]);
         }
     }
+
+    /**
+     * Deletes a holiday.
+     * @param Int $id
+     */
+
+    public function delete(int $id)
+
+    {
+
+        try {
+            $holiday = Holiday::findOrFail($id);
+            $holiday->delete();
+            return Holiday::all();
+
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Something goes wrong while removing a holiday!!'
+            ]);
+        }
+
+    }
 }
