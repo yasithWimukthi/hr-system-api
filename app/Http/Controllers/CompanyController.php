@@ -145,7 +145,6 @@ class CompanyController extends Controller
      */
 
     public function delete(int $id)
-
     {
 
         try {

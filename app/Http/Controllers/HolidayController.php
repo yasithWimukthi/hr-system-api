@@ -130,7 +130,6 @@ class HolidayController extends Controller
      */
 
     public function delete(int $id)
-
     {
 
         try {
