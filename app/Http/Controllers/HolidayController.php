@@ -93,7 +93,6 @@ class HolidayController extends Controller
 
         try{
             $holiday->fill($request->post())->update();
-
             return Holiday::select('id','title','date','day')->get();
         }catch(\Exception $e){
             \Log::error($e->getMessage());
