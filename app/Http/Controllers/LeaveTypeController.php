@@ -14,7 +14,7 @@ class LeaveTypeController extends Controller
      */
     public function index()
     {
-        //
+        return LeaveType::select()->get();
     }
 
     /**
