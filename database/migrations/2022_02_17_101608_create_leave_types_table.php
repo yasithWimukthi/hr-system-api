@@ -20,7 +20,7 @@ class CreateLeaveTypesTable extends Migration
             $table->integer('number_of_days');
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
-            $table->softDeletes();;
+            $table->softDeletes();
         });
     }
 
