@@ -32,3 +32,5 @@ Route::delete('/companies/{company}',[\App\Http\Controllers\CompanyController::c
 Route::post('/localizations', [\App\Http\Controllers\LocalizationController::class, 'store']);
 Route::get('/localizations', [\App\Http\Controllers\LocalizationController::class, 'index']);
 Route::post('/localizations/{localization}',[\App\Http\Controllers\LocalizationController::class, 'update']);
+
+Route::get('/leaves', [\App\Http\Controllers\LeaveTypeController::class, 'index']);
