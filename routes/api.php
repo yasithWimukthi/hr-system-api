@@ -34,5 +34,5 @@ Route::get('/localizations', [\App\Http\Controllers\LocalizationController::clas
 Route::post('/localizations/{localization}',[\App\Http\Controllers\LocalizationController::class, 'update']);
 
 Route::post('/leaves',[\App\Http\Controllers\LeaveController::class, 'store']);
-Route::get('/leaves', [\App\Http\Controllers\LeaveTypeController::class, 'index']);
+Route::get('/leaves', [\App\Http\Controllers\LeaveController::class, 'index']);
 
