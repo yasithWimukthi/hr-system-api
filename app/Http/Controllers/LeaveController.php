@@ -88,7 +88,27 @@ class LeaveController extends Controller
      */
     public function update(Request $request, Leave $leave)
     {
-        //
+        $request->validate([
+            'department' => 'required',
+            'designation' => 'required',
+            'name' => 'required',
+            'leaveApplyDate' => 'required',
+            'leaveDatesFrom' => 'required',
+            'leaveDatesTo' => 'required',
+            'numOfDays' => 'required',
+            'reason' => 'required',
+        ]);
+
+        try{
+            $leave->fill($request->post())->update();
+
+            return Leave::select()->get();
+        }catch(\Exception $e){
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Something goes wrong while updating a leave!!'
+            ],500);
+        }
     }
 
     /**
