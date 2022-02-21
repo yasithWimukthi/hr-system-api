@@ -98,7 +98,7 @@ class CompanyController extends Controller
             'contactPerson' => 'required',
             'address' => 'required',
             'city' => 'required',
-            'state' => 'required',
+            'state' => 'require d',
             'postalCode' => 'required',
             'email' => 'required',
             'phoneNumber' => 'required',
