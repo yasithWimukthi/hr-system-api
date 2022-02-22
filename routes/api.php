@@ -37,4 +37,4 @@ Route::post('/leaves',[\App\Http\Controllers\LeaveController::class, 'store']);
 Route::get('/leaves', [\App\Http\Controllers\LeaveController::class, 'index']);
 Route::post('/leaves/{leave}',[\App\Http\Controllers\LeaveController::class, 'update']);
 
-Route::get('/leaves-setting', [\App\Http\Controllers\LeaveTypeController::class, 'index']);
+Route::get('/leaves-setting', [\App\Http\Controllers\LeaveSettingsController::class, 'index']);
