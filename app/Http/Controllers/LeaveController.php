@@ -120,6 +120,36 @@ class LeaveController extends Controller
      */
     public function destroy(Leave $leave)
     {
-        //
+        try {
+            $leave->delete();
+            return Leave::select()->get();
+
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Something goes wrong while removing a leave!!'
+            ]);
+        }
+    }
+
+    /**
+     * Deletes a holiday.
+     * @param Int $id
+     */
+
+    public function delete(int $id)
+    {
+        try {
+            $leave = Leave::findOrFail($id);
+            $leave->delete();
+            return Leave::all();
+
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Something goes wrong while removing a leave!!'
+            ]);
+        }
+
     }
 }

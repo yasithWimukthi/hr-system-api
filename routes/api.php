@@ -36,6 +36,7 @@ Route::post('/localizations/{localization}',[\App\Http\Controllers\LocalizationC
 Route::post('/leaves',[\App\Http\Controllers\LeaveController::class, 'store']);
 Route::get('/leaves', [\App\Http\Controllers\LeaveController::class, 'index']);
 Route::post('/leaves/{leave}',[\App\Http\Controllers\LeaveController::class, 'update']);
+Route::delete('/leaves/{leave}',[\App\Http\Controllers\LeaveController::class, 'delete']);
 
 Route::get('/leaves-setting', [\App\Http\Controllers\LeaveSettingsController::class, 'index']);
 Route::post('/leave-settings/{leaves-setting}',[\App\Http\Controllers\LeaveSettingsController::class, 'update']);
