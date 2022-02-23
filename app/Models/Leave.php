@@ -18,5 +18,7 @@ class Leave extends Model
         'leaveDatesFrom',
         'leaveDatesTo',
         'numOfDays',
-        'reason'];
+        'reason',
+        'status'
+    ];
 }
