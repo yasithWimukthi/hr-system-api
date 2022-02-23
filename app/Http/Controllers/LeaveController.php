@@ -97,6 +97,7 @@ class LeaveController extends Controller
             'leaveDatesTo' => 'required',
             'numOfDays' => 'required',
             'reason' => 'required',
+            'status'  => 'required',
         ]);
 
         try{
